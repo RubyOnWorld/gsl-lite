@@ -85,3 +85,21 @@
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>
+
+
+#![cfg_attr(not(feature = "std"), no_std)]
+
+#[macro_use]
+extern crate approx;
+#[cfg(feature = "decimal")]
+#[macro_use]
+extern crate decimal;
+extern crate num_traits as num;
+
+#[cfg(not(feature = "std"))]
+extern crate core as std;
+
+#[macro_use]
+mod macros;
+pub mod general;
+pub mod linear;
